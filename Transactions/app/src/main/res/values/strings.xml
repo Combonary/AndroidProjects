@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Transactions</string>
+    <string name="amount_text">AMOUNT</string>
+    <string name="description_text">DESCRIPTION</string>
+    <string name="date_text">DATE</string>
+    <string name="notes_text">Notes</string>
+    <string name="save_btn_text">Save</string>
+</resources>
