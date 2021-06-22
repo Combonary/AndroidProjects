@@ -1,0 +1,76 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion rootProject.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.example.mvvmnotes"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.core:core-ktx:$ktxVersion"
+    implementation "androidx.appcompat:$appCompatVersion"
+    implementation "com.google.android.material:$materialVersion"
+    implementation "androidx.constraintlayout:$constraintLayoutVersion"
+    testImplementation "junit:$jUnitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$testExtJUnitVersion"
+    androidTestImplementation "androidx.test.espresso:$espressoVersion"
+
+    implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
+
+    implementation "anroidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleVersion"
+    implementation "anroidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleVersion"
+    implementation "anroidx.arch.lifecycle:common-java8:$lifeCycleVersion"
+
+    implementation "anroidx.navigation:navigation-fragment-ktx:$navigationVersion"
+    implementation "anroidx.navigation:navigation-ui-ktx:$navigationVersion"
+
+    implementation "androidx.room:room-runtime:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+
+    implementation "com.google.dagger:hilt-android:$hiltVersion"
+    kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hiltAndroidXVersion"
+    kapt "androidx.hilt:hilt-compiler:$hiltAndroidXVersion"
+
+    implementation "androidx.datastore:datastore-preferences:$dataStoreVersion"
+
+}
+kapt{
+    correctErrorTypes true
+}
