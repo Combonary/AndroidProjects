@@ -7,11 +7,17 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.concurrent.TimeUnit;
+
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = MainActivity.class.getSimpleName();
     TextView timerTV;
     Button startButton, stopButton;
-    double time;
+    long time;
     int trigger;
 
     @Override
@@ -27,8 +33,11 @@ public class MainActivity extends AppCompatActivity {
         stopButton = findViewById(R.id.stop_button2);
         stopButton.setOnClickListener(v -> stopCounter());
 
-        time = 0.000;
+        time = 0;
         trigger = 0;
+        Calendar calendar = new GregorianCalendar();
+        Log.d(TAG, "onCreate: " + "MILLISECOND: " + calendar.get(Calendar.MILLISECOND));
+        System.out.println("MILLISECOND: " + calendar.get(Calendar.MILLISECOND));
 
     }
 
@@ -36,23 +45,24 @@ public class MainActivity extends AppCompatActivity {
         Runnable timer = new Runnable() {
             @Override
             public void run() {
-                try {
-                    Thread.sleep(1);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+
                 trigger = 0;
                 do {
-                    time += 0.001;
-                    timerTV.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            String formattedTime = String.format("%.3f" , time);
-                            timerTV.setText("" + formattedTime);
-                        }
+                    time += 1000;
+
+                    String formattedTime = formatTime(time);
+                    timerTV.post(() -> {
+                        /*formatTime(time);
+                        String formattedTime = String.format("%.3f" , time);*/
+                        timerTV.setText("" + formattedTime);
                     });
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     Log.d(TAG, "run: ");
-                }while (trigger == 0);
+                } while (trigger == 0);
             }
         };
         new Thread(timer).start();
@@ -61,5 +71,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void stopCounter() {
         trigger = 1;
+    }
+
+    private String formatTime(long durationInMillis) {
+        long millis = durationInMillis % 1000;
+        long second = (durationInMillis / 1000) % 60;
+        long minute = (durationInMillis / (1000 * 60)) % 60;
+        long hour = (durationInMillis / (1000 * 60 * 60)) % 24;
+
+        String time = String.format("%02d:%02d:%02d:%03d", hour, minute, second, millis);
+
+        return time;
     }
 }
