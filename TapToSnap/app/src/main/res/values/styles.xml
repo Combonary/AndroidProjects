@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="f1_text">
+        <item name="android:textSize">@dimen/large_font_size</item>
+        <item name="font">@font/karla_regular</item>
+    </style>
+    <style name="f2_text">
+        <item name="android:textSize">@dimen/medium_font_size</item>
+        <item name="font">@font/karla_bold</item>
+    </style>
+    <style name="f3_text">
+        <item name="android:textSize">@dimen/small_font_size</item>
+        <item name="font">@font/karla_regular</item>
+    </style>
+    <style name="f4_text">
+        <item name="android:textSize">@dimen/extra_small_font_size</item>
+        <item name="font">@font/karla_bold</item>
+    </style>
+</resources>

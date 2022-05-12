@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <stroke
+        android:width="5dp"
+        android:color="@color/gradient_btm">
+
+    </stroke>
+    <corners
+        android:topLeftRadius="20dip"
+        android:topRightRadius="20dip"
+        android:bottomLeftRadius="20dip"
+        android:bottomRightRadius="20dip">
+    </corners>
+
+    <!--<gradient
+        android:angle="270"
+        android:endColor="@color/black"
+        android:startColor="@color/gradient_btm" />-->
+
+</shape>
