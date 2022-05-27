@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/TapToSnap.iml" filepath="$PROJECT_DIR$/.idea/modules/TapToSnap.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TapToSnap.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TapToSnap.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TapToSnap.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TapToSnap.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TapToSnap.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TapToSnap.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TapToSnap.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TapToSnap.app.unitTest.iml" />
     </modules>
   </component>
 </project>
